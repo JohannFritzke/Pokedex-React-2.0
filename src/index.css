@@ -7,7 +7,6 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(45deg,#3D3949,#6772A4);
-  height: 100vh; /* 100% da altura da viewport */
-  width: 100%;   /* 100% da largura disponível */
+  background-image: linear-gradient(to right top, #0d0528, #1a1a35, #292a43, #393b50, #4a4d5e);
+  
 }

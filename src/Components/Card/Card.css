@@ -1,18 +1,140 @@
 .container {
-    align-items: center;
-    backdrop-filter: blur(5px);
-    background-image: linear-gradient(45deg,#484C91,#929BEF);
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    height: 280px;
-    justify-content: center; 
-    position: relative;
+    align-items: center;
+    justify-content: space-between;
     width: 180px;
-    color:  white;
+    height: 280px;
+    text-transform: capitalize;
+    color: white;
 }
 
+.container h5 {
+    font-size: 16px;
+}
+.container .poke-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
 .container img {
-    width: 50%;
+    width: 80%;
+    backdrop-filter: blur(5px);
+}
+
+.container .types {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #D3DDE1;
+    width: 100%;
+    padding: 5px;
+    position: relative;
+    height: 50px;
+}
+.container .top-infos {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.container .top-infos .bxs-star {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    color: yellow;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.container .top-infos .number {
+    margin-left: auto;
+    padding-right: 5px;
+}
+
+.types * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    width: 70px;
+    border-radius: 20px;
+}
+
+.grass {
+    background-color: #7c5;
+}
+
+.normal {
+    background-color: #aa9;
+}
+
+.fire {
+    background-color: #f42;
+}
+
+.water {
+    background-color: #39f;
+}
+
+.electric {
+    background-color: #fc3;
+}
+
+.ice {
+    background-color: #6cf;
+}
+
+.fighting {
+    background-color: #b54;
+}
+
+.poison {
+    background-color: #a59;
+}
+
+.ground {
+    background-color: #db5;
+}
+
+.flying {
+    background-color: #89f;
+}
+
+.psychic {
+    background-color: #f59;
+}
+
+.bug {
+    background-color: #ab2;
+}
+
+.rock {
+    background-color: #ba6;
+}
+
+.ghost {
+    background-color: #66b;
+}
+
+.dragon {
+    background-color: #76e;
+}
+
+.dark {
+    background-color: #754;
+}
+
+.steel {
+    background-color: #aab;
+}
+
+.fairy {
+    background-color: #e9e;
 }
