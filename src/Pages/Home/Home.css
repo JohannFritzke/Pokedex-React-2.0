@@ -9,13 +9,17 @@
    padding: 30px;
 }
 
-.card {
-   transition: opacity 0.3s ease; /* Adiciona uma transição de 0.3 segundos para a propriedade opacity */
+.cards{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   gap: 15px;
+   width: 100%;
 }
 
 .load-more-container {
-   margin-top: 20px;
-   text-align: center;
+   clear: both;
 }
 
 .load-more-container button {
@@ -25,18 +29,4 @@
    color: #fff;
    border: none;
    cursor: pointer;
-}
-
-/* Adiciona um estilo básico ao card */
-.card {
-   background-color: #f5f5f5;
-   padding: 10px;
-   border-radius: 8px;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-   margin-bottom: 15px;
-}
-
-/* Se quiser destacar ainda mais a transição, você pode diminuir a opacidade durante a transição */
-.card.loading {
-   opacity: 0.5;
 }

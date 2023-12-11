@@ -18,33 +18,35 @@ const Home = () => {
 
     const getPokemons = async () => {
         var limit = 100;
-        if(offset>=1000){
-            limit=10
+        if (offset >= 1000) {
+            limit = 10
         }
         const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`);
         const newPokemons = await Promise.all(response.data.results.map(pokemon => axios.get(pokemon.url)));
         setPokemons([...pokemons, ...newPokemons]);
-    }
+    };
     const handleLoadMore = () => {
         setOffset(offset + 100);
     };
     return (
         <div className="main">
-            {
-                pokemons.map((pokemon, key) => (
-                    <Card
-                        key={key}
-                        nome={pokemon.data.name}
-                        img={pokemon.data.sprites.other["official-artwork"].front_default}
-                        types={pokemon.data.types}
-                        number={pokemon.data.id}
-                        className="card"
-                    />
-                ))
-            }
+            <div className="cards">
+                {
+                    pokemons.map((pokemon, key) => (
+                        <Card
+                            key={key}
+                            nome={pokemon.data.name}
+                            img={pokemon.data.sprites.other["official-artwork"].front_default}
+                            types={pokemon.data.types}
+                            number={pokemon.data.id}
+                            className="card"
+                        />
+                    ))
+                }
+            </div>
             {pokemons.length < limit && (
                 <div className="load-more-container">
-                    <button onClick={handleLoadMore}>Load More</button>
+                    <button onClick={handleLoadMore}>Carregar Mais</button>
                 </div>
             )}
         </div>
