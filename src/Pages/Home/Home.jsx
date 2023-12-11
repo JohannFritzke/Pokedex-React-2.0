@@ -1,3 +1,4 @@
+//eslint-disable
 import React from "react";
 import './Home.css'
 
@@ -10,7 +11,7 @@ const Home = () => {
 
     useEffect(() => {
         getPokemons();
-    });
+    },[pokemons]);
 
     const getPokemons = async () => {
         var endPoints = [];
