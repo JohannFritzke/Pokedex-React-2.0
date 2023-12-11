@@ -8,24 +8,26 @@ import axios from "axios";
 
 const Home = () => {
     const [pokemons, setPokemons] = useState([]);
-
+    const [offset, setOffset] = useState(0);
+    const limit = 1010
     useEffect(() => {
         getPokemons();
-    },[pokemons]);
+    }, [offset]);
+
+
 
     const getPokemons = async () => {
-        var endPoints = [];
-        for (var i = 0; i <= 24; i++) {
-            if (i > 0) {
-                endPoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
-            }
+        var limit = 100;
+        if(offset>=1000){
+            limit=10
         }
-        const responses = await axios.all(
-            endPoints.map((endPoint) => axios.get(endPoint))
-        );
-        setPokemons(responses);
-        console.log(pokemons)
+        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`);
+        const newPokemons = await Promise.all(response.data.results.map(pokemon => axios.get(pokemon.url)));
+        setPokemons([...pokemons, ...newPokemons]);
     }
+    const handleLoadMore = () => {
+        setOffset(offset + 100);
+    };
     return (
         <div className="main">
             {
@@ -36,10 +38,15 @@ const Home = () => {
                         img={pokemon.data.sprites.other["official-artwork"].front_default}
                         types={pokemon.data.types}
                         number={pokemon.data.id}
+                        className="card"
                     />
                 ))
             }
-
+            {pokemons.length < limit && (
+                <div className="load-more-container">
+                    <button onClick={handleLoadMore}>Load More</button>
+                </div>
+            )}
         </div>
     )
 }
